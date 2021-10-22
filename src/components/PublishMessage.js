@@ -1,9 +1,9 @@
-import { useState, useContext } from 'react'
-import Context from '../context'
+import { useState } from 'react'
+import { useAppContext } from './hooks'
 import { newMessage } from '../state/actions'
 
 function PublishMessage(props) {
-  const { dispatch } = useContext(Context)
+  const { dispatch } = useAppContext()
   const [text, setText] = useState('')
 
   const updateText = event => {

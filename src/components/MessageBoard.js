@@ -1,8 +1,7 @@
-import { useContext } from 'react'
-import Context from '../context'
+import { useAppContext } from './hooks'
 
 function MessageBoard() {
-  const { state: { messages } } = useContext(Context)
+  const { state: { messages } } = useAppContext()
 
   return (
     <div>
