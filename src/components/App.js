@@ -1,17 +1,32 @@
-import { useReducer } from 'react'
+import { useReducer, useEffect } from 'react'
 import reducer, { initialState } from '../state/reducer'
 import Context from '../context'
+import PubSub from '../pubsub'
 import PublishMessage from './PublishMessage'
 import MessageBoard from './MessageBoard'
 import '../pubsub'
 
-function App() {
- const [state, dispatch] = useReducer(reducer, initialState);
+const pubsub = new PubSub()
 
- console.log('state', state);
+function App() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    pubsub.addListener({
+     message: messageObject => {
+       const { channel, message } = messageObject
+
+       console.log('recieved message', message, 'channel', channel);
+
+       dispatch(message)
+     }
+    })
+  }, [])
+
+  console.log('state', state);
 
   return (
-    <Context.Provider value={{ state, dispatch }}>
+    <Context.Provider value={{ state, dispatch, pubsub }}>
       <h2>
         Reaction
       </h2>
