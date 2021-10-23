@@ -4,7 +4,7 @@ import Context from '../context'
 import PubSub from '../pubsub'
 import PublishMessage from './PublishMessage'
 import MessageBoard from './MessageBoard'
-import '../pubsub'
+import SetUsername from './SetUsername'
 
 const pubsub = new PubSub()
 
@@ -30,6 +30,7 @@ function App() {
       <h2>
         Reaction
       </h2>
+      <SetUsername />
       <hr/>
       <PublishMessage />
       <hr/>
