@@ -15,7 +15,7 @@ export const setUsername = username => ({
   type: SET_USERNAME, username
 })
 
-export const CreateReaction = ({ type, emoji, username, messageId }) => ({
+export const createReaction = ({ type, emoji, username, messageId }) => ({
   type,
   item: { id: uuid(), timestamp: Date.now(), emoji, username, messageId }
 })
