@@ -14,17 +14,17 @@ const reducer = (state, action) => {
   if (REACTION_TYPES.includes(action.type)) {
       let reactionsMap
       const { messageId } = action.item
-      const messageReactions = state.reactionsMap[messageId]
-
+      const messageReactions = state.reactionsMap[messageId.messageId]
+      
       if (messageReactions) {
         reactionsMap = {
           ...state.reactionsMap,
-          [messageId]: [...messageReactions, action.item]
+          [messageId.messageId]: [...messageReactions, action.item]
         }
       } else {
         reactionsMap = {
           ...state.reactionsMap,
-          [messageId]: [action.item]
+          [messageId.messageId]: [action.item]
         }
       }
 
