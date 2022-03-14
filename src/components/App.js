@@ -30,6 +30,7 @@ function App() {
       <h2>
         Reaction
       </h2>
+      <p>(this is a fronend only app, but PubSub will hold onto any thread that exsists on this app key so long as you don't refresh the page)</p>
       <SetUsername />
       <hr/>
       <PublishMessage />
